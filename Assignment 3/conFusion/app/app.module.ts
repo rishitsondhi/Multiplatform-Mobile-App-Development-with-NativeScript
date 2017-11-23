@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app.routing";
 import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { NativeScriptUIListViewModule } from "nativescript-telerik-ui/listview/angular";
+import { CouchbaseService } from './services/couchbase.service';
 
 import { AppComponent } from "./app.component";
 
@@ -73,7 +74,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         ProcessHTTPMsgService,
         PromotionService,
         LeaderService,
-        FavoriteService        
+        FavoriteService,
+        CouchbaseService        
     ],
     schemas: [
         NO_ERRORS_SCHEMA
