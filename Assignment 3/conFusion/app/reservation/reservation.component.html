@@ -7,9 +7,9 @@
             <drawer-content></drawer-content> 
         </StackLayout> 
     </ScrollView> 
-    <ScrollView orientation="vertical" tkMainContent class="page"> 
+    <StackLayout orientation="vertical" tkMainContent class="page"> 
         <GridLayout class="m-5" rows="auto auto auto auto" columns="*, *"          
-            [formGroup]="reservation"> 
+            [formGroup]="reservation" id="formView" [visibility]="!(showSubmission) ? 'visible' : 'collapsed'"> 
             <Label class="h3 m-15" row="0" col="0" text="No. of Guests" textWrap ="true"></Label> 
             <TextField class="input input-border" id="textGuests"
                 hint="Enter Number of Guests" [text]=''
@@ -30,5 +30,17 @@
             </TextField> 
             <Button class="btn btn-primary btn-active m-15" row="3" col="0" text="Submit" (tap)="onSubmit()"></Button> 
         </GridLayout> 
-    </ScrollView> 
+        <GridLayout class="m-5" rows="auto auto auto auto" columns="*, *"          
+            id="submissionView" [visibility]="showSubmission ? 'visible' : 'collapsed'" style="transform:scaleX(0);transform:scaleY(0)"> 
+            <Label class="h3 m-15" row="0" col="0" text="No. of Guests" textWrap ="true"></Label> 
+            <Label row="0" col="1" [text]="resrvSub.guests">
+            </Label> 
+            <Label class="h3 m-15" row="1" col="0" text="Smoking?" textWrap ="true"></Label> 
+            <Label class="m-15" [text]="resrvSub.smoking">
+            </Label> 
+            <Label class="h3 m-15" row="2" col="0" text="Date and Time" textWrap ="true"></Label> 
+            <Label row="2" col="1" [text]="resrvSub.dateTime | date:'medium'">
+            </Label>
+        </GridLayout>
+    </StackLayout> 
 </RadSideDrawer>
