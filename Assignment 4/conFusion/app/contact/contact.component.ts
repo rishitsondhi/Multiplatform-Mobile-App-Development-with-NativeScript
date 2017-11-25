@@ -3,6 +3,7 @@ import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
 import { DrawerPage } from '../shared/drawer/drawer.page';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import * as Email from 'nativescript-email';
+import * as TNSPhone from 'nativescript-phone';
 
 @Component({ 
     selector: 'app-contact', 
@@ -37,4 +38,10 @@ export class ContactComponent extends DrawerPage implements OnInit {
         })
 
     }
+
+    callRestaurant() {
+        /// Dial a phone number.
+        TNSPhone.dial('85212345678', false);
+    }
+    
 }
